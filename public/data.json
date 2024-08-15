@@ -1,0 +1,49 @@
+    [
+        {
+            "ProductInformation": {
+                "prod_Id": "12345678",
+                "prod_brand": "apple",
+                "prod_category": "electronics",
+                "prod_name": "iphone",
+                "prod_price": "14000",
+                "prod_sku": "abc",
+                "prod_stock": "100"
+            },
+            "discount_info": {
+                "discount_validUntil": "10000",
+                "prod_discount": "10"
+            },
+            "prod_title": "A high-end smartphone with advanced features.",
+            "prod_description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima inventore nisi reiciendis doloribus! Voluptas exercitationem veritatis architecto obcaecati sed ex.",
+            "prod_img": [
+                "https://i.ibb.co/J2QfYyD/iphone.webp"
+            ],
+            "prod_tags": [
+                "electronics",
+                "phone",
+                "iphone"
+            ],
+            "shippingInfo": {
+                "prod_dimension": "7x5",
+                "prod_handle_time": "",
+                "prod_ship_cost": "100",
+                "prod_weight": "0.5"
+            },
+            "supplierInfo": {
+                "barcode": "123456789012",
+                "release_date": "2024-02-02",
+                "supplier_contact": "mdshahriar376@gmail.com",
+                "supplier_name": "alshari"
+            },
+            "varients": [
+                {
+                    "variant": {
+                        "size": "xl",
+                        "color": "#ff0000",
+                        "price": 14000,
+                        "stock": 100
+                    }
+                }
+            ]
+        }
+    ]
