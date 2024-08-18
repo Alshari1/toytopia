@@ -28,7 +28,7 @@ const Navbar = () => {
                         <Link to='/manage'>Manage Product</Link>
                         <Link to='/update'>Update product</Link>
                         <Link to='/details'>Details</Link>
-                        <Link>Home</Link>
+                        <Link to='/checkout'>Checkout</Link>
 
                     </ul>
                 </div>
@@ -40,7 +40,8 @@ const Navbar = () => {
                     <Link to='/manage'>Manage Product</Link>
                     <Link to='/update'>Update product</Link>
                     <Link to='/details'>Details</Link>
-                    <Link>Home</Link>
+                    <Link to='/checkout'>Checkout</Link>
+                    
                 </ul>
             </div>
             <div className="navbar-end">

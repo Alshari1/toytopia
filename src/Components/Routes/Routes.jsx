@@ -3,6 +3,10 @@ import App from "../../App";
 import Manage from "../pages/Manage/Manage";
 import Update from "../pages/Update/Update";
 import Details from "../pages/Details/Details";
+import Checkout from "../pages/Checkout/Checkout";
+import Signup from "../pages/Signup/Signup";
+import Page404 from "../pages/Errorpages/page404";
+import Signin from "../pages/Signin/Signin";
 
 
 const Routes = createBrowserRouter(
@@ -13,7 +17,7 @@ const Routes = createBrowserRouter(
         },
         {
             path:'/manage',
-            element:<Manage></Manage>
+            element:<Manage updatedData={[]}></Manage>
         },
         {
             path:'/update',
@@ -22,6 +26,22 @@ const Routes = createBrowserRouter(
         {
             path:'/details',
             element:<Details></Details>
+        },
+        {
+            path:'/checkout',
+            element:<Checkout></Checkout>
+        },
+        {
+            path:'/signup',
+            element:<Signup></Signup>
+        },
+        {
+            path:'signin',
+            element:<Signin></Signin>
+        },
+        {
+            path:'/error',
+            element:<Page404></Page404>
         }
     ]
 )

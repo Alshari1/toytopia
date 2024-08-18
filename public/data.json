@@ -1,49 +1,272 @@
-    [
-        {
-            "ProductInformation": {
-                "prod_Id": "12345678",
-                "prod_brand": "apple",
-                "prod_category": "electronics",
-                "prod_name": "iphone",
-                "prod_price": "14000",
-                "prod_sku": "abc",
-                "prod_stock": "100"
+[
+    {
+        "ProductInformation": {
+            "prod_name": "Samsung Galaxy S23",
+            "prod_sku": "sgs23",
+            "prod_category": "electronics",
+            "prod_price": "90000",
+            "prod_stock": "150",
+            "prod_brand": "samsung"
+        },
+        "prod_description": "The latest Samsung Galaxy with cutting-edge technology.",
+        "prod_title": "A premium smartphone with advanced features.",
+        "discount_info": {
+            "prod_discount": "60",
+            "discount_validUntil": 308999
+        },
+        "prod_tags": [
+            "phone",
+            "samsung",
+            "electronics"
+        ],
+        "prod_img": [
+            "https://images.unsplash.com/photo-1691452194257-57e0f170c32e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c2Ftc3VuZyUyMGdhbGF4eSUyMHMyMSUyMHBsdXN8ZW58MHx8MHx8fDA%3D",
+            "https://images.unsplash.com/photo-1691449808501-f9c5a2030b63?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2Ftc3VuZyUyMGdhbGF4eSUyMHMyMSUyMHBsdXN8ZW58MHx8MHx8fDA%3D",
+            "https://plus.unsplash.com/premium_photo-1680985551009-05107cd2752c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8U2Ftc3VuZyUyMEdhbGF4eSUyMFMyMyUyMHBob25lfGVufDB8fDB8fHww",
+            "https://images.unsplash.com/photo-1705530292519-ec81f2ace70d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8U2Ftc3VuZyUyMEdhbGF4eSUyMFMyMyUyMHBob25lfGVufDB8fDB8fHww"
+        ],
+        "varients": [
+            {
+                "size": "xl",
+                "color": "#000000",
+                "price": "90000",
+                "stock": "80"
             },
-            "discount_info": {
-                "discount_validUntil": "10000",
-                "prod_discount": "10"
+            {
+                "size": "md",
+                "color": "#ffffff",
+                "price": "90000",
+                "stock": "70"
+            }
+        ],
+        "shippingInfo": {
+            "prod_weight": "0.4",
+            "prod_dimension": "6x4x0.8",
+            "prod_ship_cost": "80",
+            "prod_handle_time": "2100"
+        },
+        "supplierInfo": {
+            "supplier_name": "supplier1",
+            "supplier_contact": "contact1@example.com",
+            "barcode": "987654321098",
+            "release_date": ""
+        },
+        "reviews":[]
+    },
+    {
+        "ProductInformation": {
+            "prod_name": "Google Pixel 7",
+            "prod_sku": "gpx7",
+            "prod_category": "electronics",
+            "prod_price": "85000",
+            "prod_stock": "100",
+            "prod_brand": "google"
+        },
+        "prod_description": "Google's flagship smartphone with AI-powered features.",
+        "prod_title": "The smartest phone with the best of Google.",
+        "discount_info": {
+            "prod_discount": "50",
+            "discount_validUntil": 307800
+        },
+        "prod_tags": [
+            "phone",
+            "google",
+            "electronics"
+        ],
+        "prod_img": [
+            "https://img.freepik.com/free-vector/smartphone-with-purple-display_23-2147698073.jpg?ga=GA1.1.1511658818.1723461812&semt=ais_hybrid",
+            "https://img.freepik.com/premium-photo/google-pixel-7-pro-mockup-design-template_925613-23131.jpg?ga=GA1.1.1511658818.1723461812&semt=ais_hybrid",
+            "https://img.freepik.com/premium-photo/google-pixel-7-pro-mockup-design-template_925613-23272.jpg?ga=GA1.1.1511658818.1723461812&semt=ais_hybrid",
+            "https://img.freepik.com/premium-photo/google-pixel-7-pro-mockup-design-template_925613-23611.jpg?ga=GA1.1.1511658818.1723461812&semt=ais_hybrid"
+        ],
+        "varients": [
+            {
+                "size": "lg",
+                "color": "#ff5733",
+                "price": "85000",
+                "stock": "60"
             },
-            "prod_title": "A high-end smartphone with advanced features.",
-            "prod_description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima inventore nisi reiciendis doloribus! Voluptas exercitationem veritatis architecto obcaecati sed ex.",
-            "prod_img": [
-                "https://i.ibb.co/J2QfYyD/iphone.webp"
-            ],
-            "prod_tags": [
-                "electronics",
-                "phone",
-                "iphone"
-            ],
-            "shippingInfo": {
-                "prod_dimension": "7x5",
-                "prod_handle_time": "",
-                "prod_ship_cost": "100",
-                "prod_weight": "0.5"
+            {
+                "size": "md",
+                "color": "#33ff57",
+                "price": "85000",
+                "stock": "40"
+            }
+        ],
+        "shippingInfo": {
+            "prod_weight": "0.35",
+            "prod_dimension": "6x3x0.8",
+            "prod_ship_cost": "70",
+            "prod_handle_time": "2000"
+        },
+        "supplierInfo": {
+            "supplier_name": "supplier2",
+            "supplier_contact": "contact2@example.com",
+            "barcode": "123123123123",
+            "release_date": ""
+        },
+        "reviews":[]
+    },
+    {
+        "ProductInformation": {
+            "prod_name": "OnePlus 10 Pro",
+            "prod_sku": "op10p",
+            "prod_category": "electronics",
+            "prod_price": "70000",
+            "prod_stock": "200",
+            "prod_brand": "oneplus"
+        },
+        "prod_description": "A powerful smartphone with fast charging and smooth performance.",
+        "prod_title": "Flagship killer with all the latest features.",
+        "discount_info": {
+            "prod_discount": "40",
+            "discount_validUntil": 309000
+        },
+        "prod_tags": [
+            "phone",
+            "oneplus",
+            "electronics"
+        ],
+        "prod_img": [
+            "https://img.freepik.com/premium-photo/mobile-phone-mockup-phone-is-sleek-modern-with-large-display_1118800-5477.jpg?ga=GA1.1.1511658818.1723461812&semt=ais_hybrid",
+            "https://img.freepik.com/premium-photo/design-oneplus-nord-2-box-with-red-black-palette-silver-highl-web-layout-poster-flyer-art_655090-2384172.jpg?ga=GA1.1.1511658818.1723461812&semt=ais_hybrid",
+            "https://img.freepik.com/premium-photo/phone-with-behance-icon-with-solid-colored-background-social-media-mockup-template_974732-73300.jpg?ga=GA1.1.1511658818.1723461812&semt=ais_hybrid",
+            "https://img.freepik.com/premium-photo/mobile-smartphone-new-model-photo-isolated-transparent-background-clipping-path_1197797-248458.jpg?ga=GA1.1.1511658818.1723461812&semt=ais_hybrid"
+        ],
+        "varients": [
+            {
+                "size": "xl",
+                "color": "#123456",
+                "price": "70000",
+                "stock": "100"
             },
-            "supplierInfo": {
-                "barcode": "123456789012",
-                "release_date": "2024-02-02",
-                "supplier_contact": "mdshahriar376@gmail.com",
-                "supplier_name": "alshari"
+            {
+                "size": "md",
+                "color": "#654321",
+                "price": "70000",
+                "stock": "100"
+            }
+        ],
+        "shippingInfo": {
+            "prod_weight": "0.45",
+            "prod_dimension": "7x4x1",
+            "prod_ship_cost": "90",
+            "prod_handle_time": "2200"
+        },
+        "supplierInfo": {
+            "supplier_name": "supplier3",
+            "supplier_contact": "contact3@example.com",
+            "barcode": "321321321321",
+            "release_date": ""
+        },
+        "reviews":[]
+    },
+    {
+        "ProductInformation": {
+            "prod_name": "Xiaomi Mi 12",
+            "prod_sku": "mi12",
+            "prod_category": "electronics",
+            "prod_price": "60000",
+            "prod_stock": "300",
+            "prod_brand": "xiaomi"
+        },
+        "prod_description": "High-performance smartphone at an affordable price.",
+        "prod_title": "The best value smartphone with premium features.",
+        "discount_info": {
+            "prod_discount": "30",
+            "discount_validUntil": 307600
+        },
+        "prod_tags": [
+            "phone",
+            "xiaomi",
+            "electronics"
+        ],
+        "prod_img": [
+            "https://img.freepik.com/premium-vector/pocophone-x3-realistic-smartphone-design_10606-2245.jpg?ga=GA1.1.1511658818.1723461812&semt=ais_hybrid",
+            "https://img.freepik.com/free-vector/realistic-phones-different-views_52683-28436.jpg?ga=GA1.1.1511658818.1723461812&semt=ais_hybrid",
+            "https://img.freepik.com/premium-photo/samsung-phone-with-number-88-screen_1252102-12496.jpg?ga=GA1.1.1511658818.1723461812&semt=ais_hybrid",
+            "https://img.freepik.com/premium-photo/young-woman-with_1286286-4458.jpg?ga=GA1.1.1511658818.1723461812&semt=ais_hybrid"
+        ],
+        "varients": [
+            {
+                "size": "lg",
+                "color": "#abcdef",
+                "price": "60000",
+                "stock": "150"
             },
-            "varients": [
-                {
-                    "variant": {
-                        "size": "xl",
-                        "color": "#ff0000",
-                        "price": 14000,
-                        "stock": 100
-                    }
-                }
-            ]
-        }
-    ]
+            {
+                "size": "md",
+                "color": "#fedcba",
+                "price": "60000",
+                "stock": "150"
+            }
+        ],
+        "shippingInfo": {
+            "prod_weight": "0.5",
+            "prod_dimension": "7x5x1",
+            "prod_ship_cost": "100",
+            "prod_handle_time": "2300"
+        },
+        "supplierInfo": {
+            "supplier_name": "supplier4",
+            "supplier_contact": "contact4@example.com",
+            "barcode": "456456456456",
+            "release_date": ""
+        },
+        "reviews":[]
+    },
+    {
+        "ProductInformation": {
+            "prod_name": "Sony Xperia 5",
+            "prod_sku": "xperia5",
+            "prod_category": "electronics",
+            "prod_price": "75000",
+            "prod_stock": "180",
+            "prod_brand": "sony"
+        },
+        "prod_description": "Sony's flagship smartphone with a focus on photography.",
+        "prod_title": "Capture your moments with the best camera phone.",
+        "discount_info": {
+            "prod_discount": "55",
+            "discount_validUntil": 307900
+        },
+        "prod_tags": [
+            "phone",
+            "sony",
+            "electronics"
+        ],
+        "prod_img": [
+            "https://img.freepik.com/premium-photo/design-sony-xperia-5-ii-box-with-black-burgundy-palette-silve-web-layout-poster-flyer-art_655090-2358951.jpg?ga=GA1.1.1511658818.1723461812&semt=ais_hybrid",
+            "https://img.freepik.com/free-photo/back-position-smartphone-device-tech-generative-ai_188544-12116.jpg?ga=GA1.1.1511658818.1723461812&semt=ais_hybrid",
+            "https://img.freepik.com/premium-photo/smart-phone-mockup-high-quality-image_1252102-26328.jpg?ga=GA1.1.1511658818.1723461812&semt=ais_hybrid",
+            "https://img.freepik.com/premium-photo/black-lg-phone-with-picture-flower-it_1252102-12425.jpg?ga=GA1.1.1511658818.1723461812&semt=ais_hybrid"
+        ],
+        "varients": [
+            {
+                "size": "xl",
+                "color": "#ff00ff",
+                "price": "75000",
+                "stock": "90"
+            },
+            {
+                "size": "lg",
+                "color": "#00ffff",
+                "price": "75000",
+                "stock": "90"
+            }
+        ],
+        "shippingInfo": {
+            "prod_weight": "0.42",
+            "prod_dimension": "6x4x0.9",
+            "prod_ship_cost": "95",
+            "prod_handle_time": "2250"
+        },
+        "supplierInfo": {
+            "supplier_name": "supplier5",
+            "supplier_contact": "contact5@example.com",
+            "barcode": "654654654654",
+            "release_date": ""
+        },
+        "reviews":[]
+    }
+]

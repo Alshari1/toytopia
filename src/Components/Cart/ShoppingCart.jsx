@@ -1,9 +1,12 @@
-import { Rating } from '@mui/material';
-import moment from 'moment';
+import { Button, Rating } from '@mui/material';
 import useDiscountTimer from '../Hooks/UseDiscountTimer';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 const ShoppingCart = ({ data }) => {
-    
+    const navigate = useNavigate()
+    const [show, setShow] = useState(false)
+
     const {
         _id,
         ProductInformation,
@@ -17,6 +20,7 @@ const ShoppingCart = ({ data }) => {
         supplierInfo,
         rating,
     } = data;
+    console.log(data)
 
     const { isDiscountValid, timeLeft } = useDiscountTimer(discount_info.discount_validUntil);
 
@@ -24,22 +28,39 @@ const ShoppingCart = ({ data }) => {
         event.stopPropagation(); // Stop event bubbling
         console.log('clicked from div');
         localStorage.setItem('prod-cart', _id)
+        navigate('/details')
     }
 
     const handleAdd = (event) => {
-        event.stopPropagation(); // Stop event bubbling
+        event.stopPropagation();// Stop event bubbling
         console.log('clicked from button');
     }
+    const handleUpdate = (event, _id) => {
 
+        event.stopPropagation()
+        localStorage.setItem('update_cart', _id)
+        navigate('/update')
+        console.log('clicked from update btn', _id)
+    }
     return (
         <div
             style={{ width: '18rem' }}
             className="relative flex flex-col space-y-4 border border-gray-300 hover:shadow-lg transition-shadow mx-auto"
             onClick={handleDetails} // No need for an anonymous function here
+            onMouseEnter={() => setShow(true)}
+            onMouseLeave={() => setShow(false)}
         >
-            <figure className="flex justify-center">
+            <div className='relative'>
+                {
+                    show && <button
+                        className=' btn btn-outline absolute'
+                        onClick={(event) => handleUpdate(event, _id)}
+                    >
+                        update
+                    </button>
+                }
                 <img className="h-48 w-full object-cover" src={prod_img} alt={prod_title} />
-            </figure>
+            </div>
             <div className="space-y-2 p-4">
                 <h2 className="text-lg font-semibold">{prod_title}</h2>
                 <div className=''>
@@ -73,27 +94,29 @@ const ShoppingCart = ({ data }) => {
                         <Rating name="half-rating-read" defaultValue={4.75} precision={0.25} readOnly />/ 5 stars
                     </span>
                 </div>
-                <button 
-                    onClick={handleAdd} 
-                    className="w-full btn mt-4 bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded transition-colors"
-                >
-                    Add to Cart
-                </button>
+                <div className=''>
+                    <button
+                        onClick={handleAdd}
+                        className="w-full btn btn-outline rounded"
+                    >
+                        Add to Cart
+                    </button>
+                </div>
             </div>
-            {/* {shippingInfo && (
-                <div className="text-sm text-gray-500 mt-4">
-                    <p>Ships from: {shippingInfo.origin}</p>
-                    <p>Delivery: {shippingInfo.estimatedDelivery}</p>
-                </div>
-            )}
-            {supplierInfo && (
-                <div className="text-sm text-gray-500 mt-4">
-                    <p>Supplier: {supplierInfo.name}</p>
-                    <p>Rating: {supplierInfo.rating} / 5</p>
-                </div>
-            )} */}
         </div>
     );
 }
 
 export default ShoppingCart;
+{/* {shippingInfo && (
+             <div className="text-sm text-gray-500 mt-4">
+                 <p>Ships from: {shippingInfo.origin}</p>
+                 <p>Delivery: {shippingInfo.estimatedDelivery}</p>
+             </div>
+         )}
+         {supplierInfo && (
+             <div className="text-sm text-gray-500 mt-4">
+                 <p>Supplier: {supplierInfo.name}</p>
+                 <p>Rating: {supplierInfo.rating} / 5</p>
+             </div>
+         )} */}

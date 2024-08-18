@@ -10,10 +10,11 @@ const Home = () => {
   }, [])
 
 
+
   console.log(data)
 
   return (
-    <div>
+    <div className='grid grid-cols-4 gap-5'>
       {
         data && data.map((data) => <ShoppingCart key={data._id} data={data}></ShoppingCart>)
       }
