@@ -1,21 +1,10 @@
-import React, { useContext } from 'react';
-import googleIcon from '../../../assets/images/icon/google.png'
-import githubIcon from '../../../assets/images/icon/github.png'
+import React from 'react';
 import coverImg from '../../../assets/images/banner/biscuit-recipe_1263326-20886.jpg'
 import eyeIcon from '../../../assets/images/icon/cartoon-happy-eyes.png'
-import eyeCloseIcon from '../../../assets/images/icon/eye (1).png'
-import { AuthContext } from '../../Providers/AuthProvider';
 import { Link } from 'react-router-dom';
 
 const Signup = () => {
 
-    const {googleSignUp} = useContext(AuthContext)
-    const handleGoogleSignIn = () => {
-        googleSignUp()
-        .then(result => {
-            console.log(result.user)
-        })
-    }
     return (
         <section className="relative py-20 lg:py-10 overflow-hidden">
             <div className="container px-4 mx-auto">
@@ -62,25 +51,6 @@ const Signup = () => {
                             <div className="max-w-md lg:py-20 mx-auto lg:mr-0">
                                 <h3 className="font-heading text-4xl text-gray-900 font-semibold mb-4">Sign up to your account</h3>
                                 <p className="text-lg text-gray-500 mb-10">Greetings on your return! We kindly request you to enter your details.</p>
-                                <div className="flex flex-wrap mb-6 items-center -mx-2">
-                                    <div className="w-full md:w-1/2 px-2 mb-3 md:mb-0">
-                                        <div onClick={handleGoogleSignIn} className="inline-flex w-full py-3 px-4 items-center justify-center rounded-full border border-gray-200 hover:border-gray-400 transition duration-100">
-                                            <img className='w-5' src={googleIcon} alt="icon" />
-                                            <span className="ml-4 text-sm font-semibold text-gray-500">Login with Google</span>
-                                        </div>
-                                    </div>
-                                    <div className="w-full md:w-1/2 px-2">
-                                        <a className="inline-flex w-full py-3 px-4 items-center justify-center rounded-full border border-gray-200 hover:border-gray-400 transition duration-100" href="#">
-                                            <img className='w-5' src={githubIcon} alt="icon" />
-                                            <span className="ml-4 text-sm font-semibold text-gray-500">Login with Github</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div className="flex mb-6 items-center">
-                                    <div className="w-full h-px bg-gray-300"></div>
-                                    <span className="mx-4 text-sm font-semibold text-gray-500">Or</span>
-                                    <div className="w-full h-px bg-gray-300"></div>
-                                </div>
                                 <form>
                                     <div className="mb-6">
                                         <label className="block mb-1.5 text-sm text-gray-900 font-semibold" htmlFor="name">Name</label>

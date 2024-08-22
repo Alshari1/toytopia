@@ -20,7 +20,6 @@ const ShoppingCart = ({ data }) => {
         supplierInfo,
         rating,
     } = data;
-    console.log(data)
 
     const { isDiscountValid, timeLeft } = useDiscountTimer(discount_info.discount_validUntil);
 

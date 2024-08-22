@@ -78,7 +78,7 @@ const Manage = ({ value, updatedData, loading }) => {
             .filter(tag => tag.length > 0);
 
         const tagsObjects = tagsArray.map(tag => (tag));
-        // console.log(tagsObjects)
+    
 
         return tagsObjects;
     };

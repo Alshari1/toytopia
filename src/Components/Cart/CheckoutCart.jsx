@@ -1,80 +1,73 @@
-import { useState } from "react";
+import { forwardRef, useState } from "react";
 
-const CheckoutCart = ({ product }) => {
-    const [quantity, setQuantity] = useState(1);
-
-    const handleRemove = (productId) => {
-        setProducts(products.filter(product => product.id !== productId));
-    };
+const CheckoutCart = forwardRef((props, ref) => {
+    
+    const { prod_code, client, email, color, size, quantity, price, totalPrice, imageUrl, prod_name } = props.order;
+    const [qty, setQty] = useState(quantity);
 
     const handleQuantityChange = (newQuantity) => {
         if (newQuantity >= 1) {
-            setQuantity(newQuantity);
+            setQty(newQuantity);
+            props.onQuantityChange(prod_code, newQuantity); // Call the callback function with product code and new quantity
         }
     };
 
     return (
         <div className="flex items-center justify-between p-2 border border-gray-300 rounded-lg mb-4">
-            {/* Product Image */}
             <div className="flex flex-1 items-center">
                 <img
-                    src='https://images.unsplash.com/photo-1723743640863-4984aa9d78b7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8'
-                    alt={product.name}
+                    src={imageUrl}
                     className="w-20 h-20 object-cover rounded-lg mr-4"
+                    alt={prod_name}
                 />
-                <div className="">
-                    <h3 className="text-lg font-semibold">{product.name}</h3>
-                    {product.color && (
-                        <p className="text-sm text-gray-600">Color: {product.color}</p>
+                <div>
+                    <h3 className="text-lg font-semibold">{prod_name}</h3>
+                    {color && (
+                        <p className="text-sm text-gray-600">Color: {color}</p>
                     )}
-                    {product.memoryStorage && (
-                        <p className="text-sm text-gray-600">Memory Storage: {product.memoryStorage}</p>
-                    )}
-                    {product.size && (
-                        <p className="text-sm text-gray-600">Size: {product.size}</p>
+                    {size && (
+                        <p className="text-sm text-gray-600">Size: {size}</p>
                     )}
                 </div>
             </div>
 
-            {/* Quantity and Price */}
             <div className="flex gap-28">
                 <div className="flex items-center w-56">
-                    <div className="flex items-center border border-gray-300 rounded-lg">
+                    <div className="flex items-center">
                         <button
-                            className="px-3 py-1 text-gray-700 hover:text-blue-500"
-                            onClick={() => handleQuantityChange(quantity - 1)}
-                            disabled={quantity <= 1}
+                            className="btn btn-sm"
+                            onClick={() => handleQuantityChange(qty - 1)}
+                            disabled={qty <= 1}
                         >
                             -
                         </button>
                         <input
                             type="text"
-                            value={quantity}
-                            className="w-8 text-center text-gray-700 focus:outline-none"
+                            value={qty}
+                            className="input input-sm mx-2 w-16 text-center"
                             readOnly
                         />
                         <button
-                            className="px-3 py-1 text-gray-700 hover:text-blue-500"
-                            onClick={() => handleQuantityChange(quantity + 1)}
+                            className="btn btn-sm"
+                            onClick={() => handleQuantityChange(qty + 1)}
                         >
                             +
                         </button>
                     </div>
                     <p className="text-lg font-semibold text-gray-700 ml-4">
-                        ${(product.price * quantity).toFixed(2)}
+                        ${(price * qty).toFixed(2)}
                     </p>
                 </div>
 
-                {/* Remove Button */}
                 <button
-                    onClick={() => { }}
-                    className="text-gray-500 hover:text-red-500 mr-4 "
+                    onClick={() => { /* Handle remove item */ }}
+                    className="text-gray-500 hover:text-red-500 mr-4"
                 >
                     ✕
                 </button>
             </div>
         </div>
     );
-};
+});
 
 export default CheckoutCart;

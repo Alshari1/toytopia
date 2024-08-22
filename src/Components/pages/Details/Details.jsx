@@ -1,12 +1,17 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import Navbar from "../../Navbar/Navbar";
 import axios from "axios";
 import MiniCart from "../../Cart/MiniCart";
 import uploadIcon from '../../../assets/images/icon/cloud-computing.png'
 import successIcon from '../../../assets/images/icon/checked.png'
+import ReviewCart from "../../Cart/ReviewCart";
+import { AuthContext } from "../../Providers/AuthProvider";
 // import Image from "next/image";
 
 const ProductDetails = () => {
+    const miniCartRef = useRef();
+    const {user}  = useContext(AuthContext)  
+    const [orders, setOrders] = useState([])
     const [loading, setLoading] = useState(true)
     const [spinner, setSpinner] = useState(false)
     const [data, setData] = useState([])
@@ -19,7 +24,8 @@ const ProductDetails = () => {
     const [imageUrl, setImageUrl] = useState(null);
     const [comment, setComment] = useState('')
     const [success, setSuccess] = useState(false)
-
+    const [length, setLength] = useState(orders.length)
+// console.log(color)
 
     useEffect(() => {
         const id = localStorage.getItem('prod-cart')
@@ -28,6 +34,8 @@ const ProductDetails = () => {
                 setData(res.data)
                 setLoading(false)
             })
+            axios.get('http://localhost:5000/orders')
+            .then(res => setOrders(res.data))
     }, [])
 
     if (loading) {
@@ -92,28 +100,64 @@ const ProductDetails = () => {
         const review = { imageUrl, comment, rating }
         axios.patch(`http://localhost:5000/products/${id}`, {
             ...review,
-            status:'review'
+            status: 'review'
         })
+            .then(res => {
+                if (res.data.modifiedCount > 0) {
+                    setSuccess(true)
+                }
+            })
+    }
+
+    const handleAddToCart = () => {
+        const totalPrice = document.getElementById('total-price').innerText;
+        const info = { prod_code:_id ,client: user.displayName, email:user.email, color, size, quantity, price:ProductInformation.prod_price, totalPrice, imageUrl:prod_img[0], prod_name:ProductInformation.prod_name}
+        axios.post('http://localhost:5000/orders', info)
         .then(res => {
-            if(res.data.modifiedCount > 0){
-                setSuccess(true)
+            if(res.data) {
+                alert('item added')
+                miniCartRef.current.fetchData();
+            } else {
+                alert('something wrong')
             }
         })
+        .catch(err => {
+            alert(err.message)
+        })
+    }
+    const totalPrice = () => {
+
     }
 
 
     return (
         <>
             <Navbar></Navbar>
-            <div className="container mx-auto p-4">
+            <div className="container p-2">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="flex justify-center">
-                        <img
-                            src={url ? url : prod_img[0]}
-                            alt="Product Image"
-                            width={500}
-                            height={500}
-                        />
+                    <div className="flex flex-row-reverse gap-2">
+                        <div className="flex-1">
+                            <img
+                                src={url ? url : prod_img[0]}
+                                alt="Product Image"
+                                width={500}
+                                height={500}
+                            />
+                        </div>
+                        <div className="space-y-2">
+                            {
+                                prod_img && prod_img.map((img, idx) => <div type='select' className="border border-gray-400 p-2 rounded-sm">
+                                    <img
+                                        key={idx + 1}
+                                        src={img}
+                                        alt="Product Image"
+                                        width={80}
+                                        height={80}
+                                        onClick={() => steUrl(img)}
+                                    />
+                                </div>)
+                            }
+                        </div>
                     </div>
                     <div>
                         <h1 className="text-3xl font-bold mb-2">{prod_title}</h1>
@@ -206,10 +250,10 @@ const ProductDetails = () => {
                                 </div>
                             </div>
                             <div>
-                                <MiniCart cartItems={[]}></MiniCart>
+                                <MiniCart ref={miniCartRef}></MiniCart>
                             </div>
                         </div>
-                        <button className="btn btn-outline w-full">Add to Cart</button>
+                        <button onClick={handleAddToCart} className="btn btn-outline w-full">Add to Cart</button>
                         <label htmlFor="my_modal_7" className="btn btn-outline w-full mt-2">Add a review</label>
                         {/* modal */}
                         <input type="checkbox" id="my_modal_7" className="modal-toggle" />
@@ -255,7 +299,7 @@ const ProductDetails = () => {
                                 <div className="flex justify-between mt-5">
                                     <div>
                                         {
-                                            success ? <img className="w-5 hover:cursor-pointer" src={successIcon}/> : <img className="w-6 hover:cursor-pointer" src={uploadIcon} onClick={ () => handlereview(_id)}/>
+                                            success ? <img className="w-5 hover:cursor-pointer" src={successIcon} /> : <img className="w-6 hover:cursor-pointer" src={uploadIcon} onClick={() => handlereview(_id)} />
                                         }
                                     </div>
                                     <div className="rating">
@@ -276,31 +320,27 @@ const ProductDetails = () => {
                         </div>
                         <div className="mt-4">
                             <p className="text-sm">
-                                Price: <span className="font-bold">$29.00</span>
+                                Price: <span className="font-bold">${ProductInformation?.prod_price}</span>
                             </p>
                             <p className="text-sm">
-                                VAT Added: <span className="font-bold">+12%</span>
+                                VAT Added: <span className="font-bold">+8%</span>
+                            </p>
+                            <p className="text-sm">
+                                Total Price: $<span id="total-price" className="font-bold">{(ProductInformation.prod_price*quantity) + (ProductInformation?.prod_price*quantity*(8/100))}</span>
                             </p>
                         </div>
                     </div>
                 </div>
-                <div className="w-1/2 mt-10">
-                    <div className="flex justify-evenly">
-                        {
-                            prod_img && prod_img.map((img, idx) => <div type='select' className="border border-gray-400 p-2 rounded-sm">
-                                <img
-                                    key={idx + 1}
-                                    src={img}
-                                    alt="Product Image"
-                                    width={80}
-                                    height={80}
-                                    onClick={() => steUrl(img)}
-                                />
-                            </div>)
-                        }
-                    </div>
+                <div className="mt-10">
+                    {
+                        reviews && reviews.map((review, idx) => <ReviewCart
+                        key={idx}
+                        review={review}
+                        ></ReviewCart>)
+                    }
                 </div>
             </div >
+
         </>
     );
 };
